@@ -1,0 +1,76 @@
+.favorites-list{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favorites-list h1{
+    margin-bottom: 14px;
+}
+
+.favorites-list span{
+    font-size: 18px;
+}
+
+.favorites-list ul{
+    width: 720px;
+}
+
+.favorites-list ul li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.favorites-list div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favorites-list div a{
+    text-decoration: none;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 12px;
+    margin-left: 0;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    border-radius: 10px;
+    color: darkorchid;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.favorites-list div button{
+    flex-direction: row;
+    align-items: center;
+    margin-right: 12px;
+    margin-left: 0;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    border-radius: 10px;
+    color: #fff;
+    background-color: darkorchid;
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.favorites-list div button:hover{
+    background-color: #fff;
+    color: darkorchid;
+}
+
+.favorites-list div a:hover{
+    text-decoration: none;
+    background-color: darkorchid;
+    color: #fff;
+}

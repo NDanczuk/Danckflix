@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import './movie-info.css'
 
 import api from "../../services/api"
 
 export default function Movie(){
     const { id } = useParams()
+    const navigate = useNavigate()
     const [movie, setMovie] = useState({})
     const [loading, setLoading] = useState(true)
 
@@ -21,12 +22,12 @@ export default function Movie(){
                 setLoading(false)
             })
             .catch(() =>{
-                console.log('MOVIE NOT FOUND')
+                navigate('/404', {replace: true})
             })
         }
 
         loadMovie()
-    }, [])
+    }, [navigate, id])
 
     if(loading){
         return(
@@ -49,7 +50,7 @@ export default function Movie(){
             <div className="button-area">
                 <button>Add to favorites</button>
                 <button>
-                    <a href='#'>
+                    <a target="blank" rel="external" href={`https://youtube.com/results?seatch_query=${movie.title}`}>
                         Trailer
                     </a>
                 </button>

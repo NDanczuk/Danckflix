@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import './movie-info.css'
+import { toast } from "react-toastify"
 
 import api from "../../services/api"
 
@@ -37,13 +38,13 @@ export default function Movie(){
         const hasMovie = favoriteMovies.some( (favoriteMovie) => favoriteMovie.id === movie.id)
 
         if(hasMovie){
-            alert('This movie is already on the favorites list')
+            toast.warn('This movie is already on the favorites list')
             return
         }
 
         favoriteMovies.push(movie)
         localStorage.setItem('@Danckflix', JSON.stringify(favoriteMovies))
-        alert('Movie added to favorites list!')
+        toast.success('Movie added to favorites list!')
     }
 
     if(loading){

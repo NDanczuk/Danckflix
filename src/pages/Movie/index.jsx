@@ -29,6 +29,23 @@ export default function Movie(){
         loadMovie()
     }, [navigate, id])
 
+    function addMovieToFavorites(){
+        const myList = localStorage.getItem('@Danckflix')
+
+        let favoriteMovies = JSON.parse(myList) || []
+
+        const hasMovie = favoriteMovies.some( (favoriteMovie) => favoriteMovie.id === movie.id)
+
+        if(hasMovie){
+            alert('This movie is already on the favorites list')
+            return
+        }
+
+        favoriteMovies.push(movie)
+        localStorage.setItem('@Danckflix', JSON.stringify(favoriteMovies))
+        alert('Movie added to favorites list!')
+    }
+
     if(loading){
         return(
             <div className="movie-info">
@@ -48,7 +65,7 @@ export default function Movie(){
             <strong>Score: {movie.vote_average} / 10</strong>
 
             <div className="button-area">
-                <button>Add to favorites</button>
+                <button onClick={addMovieToFavorites}>Add to favorites</button>
                 <button>
                     <a target="blank" rel="external" href={`https://youtube.com/results?seatch_query=${movie.title}`}>
                         Trailer
